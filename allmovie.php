@@ -45,10 +45,14 @@ include('database_connection.php');
     <div class="container">
         <div class="row">
         	
-            <div class="col-md-3">                				
+            <div class="col-md-3">
+                <div class="list-group">
+                    <h4>⌕ Search </h4>
+                    <input type="text" id="search_text" class="form-control" style="width:290px;"placeholder="search movie and enter.....">
+                </div>                				
 				
 				<div class="list-group">
-					<h3>Category</h3>
+					<h4 style="margin-top: 10px;">Category</h4>
                     <?php
 
                     $query = "
@@ -70,7 +74,7 @@ include('database_connection.php');
                 </div>
 				
 				<div class="list-group">
-					<h3>Language</h3>
+					<h4 style="margin-top: 10px;">Language</h4>
 					<?php
                     $query = "
                     SELECT DISTINCT(language) FROM add_movie WHERE status = '1' ORDER BY language DESC
@@ -133,10 +137,11 @@ $(document).ready(function(){
         var directer = get_filter('directer');
         var categroy = get_filter('categroy');
         var language = get_filter('language');
+        var search = $('#search_text').val();
         $.ajax({
             url:"allmovie_fetch.php",
             method:"POST",
-            data:{action:action, directer:directer, categroy:categroy, language:language},
+            data:{action:action, directer:directer, categroy:categroy, language:language, search:search},
             success:function(data){
                 $('.filter_data').html(data);
             }
@@ -153,6 +158,10 @@ $(document).ready(function(){
     }
 
     $('.common_selector').click(function(){
+        filter_data();
+    });
+
+    $('#search_text').keyup(function(){
         filter_data();
     });
 

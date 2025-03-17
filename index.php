@@ -41,7 +41,7 @@ include("header.php");
 ?>
 
 <div class="container">
-   <img src="img/logo.jpg" alt="" class="image-resize" style="width: 100%; height: 500px; border: solid 7px red; margin-bottom: 40px; box-shadow: blue 0 0 20px;">
+   <img src="img/screen.jpg" alt="" class="image-resize" style="width: 100%; height: 500px; border: solid 7px red; margin-bottom: 40px; box-shadow: blue 0 0 20px;">
 </div>
 
 <div class="container">

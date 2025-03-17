@@ -6,8 +6,52 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Dashboard Page</title>
 
+    <title>Dashboard Page</title>
+  </head>
+  <body>
+  <style>
+    /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h2 {
+  color: #343a40;
+  margin-top: 30px;
+
+}
+
+table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #d6ecf3;
+}
+
+/* Dashboard-specific styles */
+
+    
+  </style>
 <?php 
 session_start();  
 if (!isset($_SESSION['admin'])) {
@@ -18,14 +62,14 @@ include "./templates/top.php";
 
 ?>
  
-<?php include "./templates/navbar.php"; ?>
+ <?php include "./templates/navbar.php"; ?>
 
-<div class="container-fluid">
+
+<div class="container-fluid" style="margin-top: 150px; width: 900px;">
   <div class="row">
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
       <h2>Total Admins</h2>
       <div class="table-responsive">
@@ -36,7 +80,7 @@ include "./templates/top.php";
               <th>Name</th>
               <th>Email</th>
               <th>Status</th>
-              
+
             </tr>
           </thead>
           <?php
@@ -68,3 +112,5 @@ if (mysqli_num_rows($result) > 0) {
 <?php include "./templates/footer.php"; ?>
 
 <script type="text/javascript" src="./js/admin.js"></script>
+</body>
+</html>

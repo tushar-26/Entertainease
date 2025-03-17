@@ -1,3 +1,14 @@
+<?php
+session_start(); 
+if (!isset($_SESSION['admin'])) {
+  header("location:login.php");
+  exit; // Ensure no further code is executed after the redirect
+}
+
+// Continue with your includes and HTML below
+include_once("./templates/top.php"); 
+include_once("./templates/navbar.php"); 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,14 +19,274 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Feedback Page</title>
 
-
-<?php session_start(); 
-if (!isset($_SESSION['admin'])) {
-  header("location:login.php");
-}
+  </head>
+  <body>
+    <!-- Your HTML content goes here -->
+    <div class="container-fluid">
+      <!-- Content continues... -->
+    </div>
+    <!-- Additional Modals and HTML content -->
+  </body>
+</html>
+<?php
+include_once("./templates/footer.php"); 
 ?>
-<?php include_once("./templates/top.php"); ?>
-<?php include_once("./templates/navbar.php"); ?>
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Feedback Page</title>
+    </head>
+<style>
+  /* General Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #007bff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand, .navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link:hover {
+  color: #ffd700 !important;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: #343a40;
+  color: white;
+  padding-top: 30px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar .active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Container and Row Styling */
+.container-fluid {
+  margin-left: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  margin-left: 50px;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #007bff;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 15px;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.modal-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 10px;
+  text-align: right;
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  transition: border 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+/* Input Field Styling */
+input[type="text"], input[type="number"], input[type="email"], input[type="date"] {
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Hover Effects for Cards */
+.card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    padding: 0;
+  }
+
+  .sidebar a {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
+  .modal-dialog {
+    width: 100%;
+    margin: 0;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+}
+
+</style>
 <div class="container-fluid">
   <div class="row">
     

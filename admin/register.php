@@ -2,6 +2,120 @@
 
 <?php include "./templates/navbar.php"; ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>admin register page </title>
+</head>
+<body>
+<style>
+	body {
+    font-family: Arial, sans-serif;
+	background: linear-gradient(to right,#fc5c7d,#6a82fb);
+}
+
+.container {
+    max-width: 600px;
+	height: 600px;
+    margin:  auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(230, 111, 111, 0.1);
+	background: linear-gradient(to right,#fc5c7d,#6a82fb);
+	
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-md-4 {
+    flex-basis: 33.33%;
+    padding: 20px;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 20px;
+	font-size: 20px;
+	color: black;
+}
+
+.message {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+
+}
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    width: 350px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-control {
+    width: 200%;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+small {
+    font-size: 14px;
+    color: #666;
+}
+
+.register-btn {
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+	margin-left: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color:rgb(0, 0, 0);
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.text-success {
+    color:rgb(0, 0, 0);
+}
+
+.text-danger {
+    color: #e74c3c;
+}
+</style>
+
 <div class="container">
 	<div class="row justify-content-center" style="margin:100px 0;">
 		<div class="col-md-4">
@@ -15,7 +129,6 @@
 			  <div class="form-group">
 			    <label for="email">Email address</label>
 			    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
-			    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
@@ -65,3 +178,5 @@
 
 });
 </script>
+</body>
+</html>

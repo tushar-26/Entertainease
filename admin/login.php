@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Username and password validation in PHP using AJAX</title>
+  <title>Admin Login</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/jquery-3.5.1.min.js"></script>
   <script type="text/javascript" src="ajaxValidation.js"></script>
   <style type="text/css">
-    li{color: red;}
+   
   </style>
 </head>
+
 <body>
-  <div class="container col-md-5">
+  <div class="container col-5">
+    <h1 style="text-align:center; color: white;">Admin Login</h1>
     <div class="mb-3">
       <label class="form-label">Name</label>
       <input type="email" class="form-control" id="userEmail">
     </div>
     <div class="mb-3">
-      <label class="col-sm-2 col-form-label">Password</label>
-      <input type="password" class="form-control" id="userPassword">
+      <label class="col-form-label">Password</label>
+      <input type="password" class="form-control" id="userPassword" minlength="8" maxlength="20">
     </div>
     <p id="message"></p>
     <div class="mb-3 col-md-4">
-      <button class="form-control btn btn-danger" id="checkValidation">Login</button>
+      <button class="form-control btn " id="checkValidation" style="margin-bottom: 10px; margin-left:180px; background-color:black;">Login</button>
+    </div>
+    <div style="margin-left: 16px;">
+      <a href="register.php" style="font-size: 20px; color: white;  padding: 5px 19px;">Admin register</a>
     </div>
   </div>
 </body>
 
 <style>
-  /* Style for the container */
-/* Style for the container */
-.container {
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+  body {
+    background: linear-gradient(to right,#fc5c7d,#6a82fb);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 520px;
+     
+  }
 
-/* Style for form labels */
-.form-label {
-  font-weight: bold;
-}
+  
+  .container {
+    margin-top: 200px;
+    padding: 20px;
+    border: 5px solid #ccc;
+    border-radius: 1px;
+    background: linear-gradient(to right,#fc5c7d,#6a82fb);
+  }
 
-/* Style for form inputs */
-.form-control {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  .form-label {
+    font-weight: bold;
+  }
 
-/* Style for the login button */
-.btn {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-  cursor: pointer;
-}
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-/* Hover effect for the login button */
-.btn:hover {
-  background-color: #c82333;
-}
+  .btn {
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+  }
 
-/* Style for the error message */
-#message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
+  #message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  a{
+    background-color: black;
+    margin-left: 180px;
+  }
 </style>
+
 </html>

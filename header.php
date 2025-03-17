@@ -51,7 +51,7 @@
                             }
                         }
                         ?>
-                                <span>Hii <?php echo $_SESSION['uname'];?></span>
+                                <span style="box-shadow: inset white 0 0 10px; padding: 5px; font-family: cursive; font-size:18px; margin-left: 15px;">🤗 <?php echo $_SESSION['uname'];?></span>
                                 <a href="logout.php"> Logout</a>
                             </div>
                            

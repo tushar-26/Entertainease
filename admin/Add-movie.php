@@ -7,6 +7,191 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Movies Page</title>
+    <style>
+     /* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-10, .col-2 {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Table Styles */
+
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.table-striped {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-striped th, .table-striped td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-striped th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table-striped tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Modal Styles */
+
+.modal-content {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.modal-header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.close:hover {
+  opacity: 0.5;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Form Styles */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #23527c;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .container-fluid {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  .col-10, .col-2 {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-fluid {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  .col-10, .col-2 {
+    padding: 5px;
+  }
+}
+    </style>
 
 <?php session_start();  
 if (!isset($_SESSION['admin'])) {
@@ -14,8 +199,7 @@ if (!isset($_SESSION['admin'])) {
 }
 ?>
 
-<?php include_once("./templates/top.php"); ?>
-<?php include_once("./templates/navbar.php"); ?>
+
 <div class="container-fluid">
   <div class="row">
     
@@ -60,7 +244,7 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['directer'];?></td>
               <td><?php echo $row['categroy'];?></td>
               <td><?php echo $row['language'];?></td>
-              
+      
               <td><?php echo $row['show'];?></td>
               <td><img src="image/<?php echo $row['image']; ?>" alt="" class="resize"></td>
               <td><button data-toggle="modal" type="button" data-target="#edit_movie_modal<?php echo $id;?>" class="btn btn-primary btn-sm">Edit Movie</button></td>
@@ -148,12 +332,7 @@ if (mysqli_num_rows($result) > 0) {
               ?>
               </div>
             </div>
-             <div class="col-12">
-              <div class="form-group">
-                <label>Tailer</label>
-                <input type="text" name="edit_tailer" id="edit_tailer" class="form-control" value="<?php echo $row['you_tube_link'];?>">
-              </div>
-            </div>
+
              <div class="col-12">
               <div class="form-group">
                 <label>Action</label>
@@ -164,13 +343,7 @@ if (mysqli_num_rows($result) > 0) {
                 </select>
               </div>
             </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label>Decription</label>
-                <textarea type="text" name="decription" id="decription" class="form-control" value="<?php echo $row['decription'];?>">
-                <?php echo $row['decription'];?></textarea>
-              </div>
-            </div>       
+            <div class="col-12">      
             <div class="col-12">
               <div class="form-group">
                 <label>Set of Time</label>
@@ -316,11 +489,7 @@ if (mysqli_num_rows($result) > 0) {
               </div>
             </div>
         		<div class="col-12">
-              <div class="form-group">
-                <label>Uplode Poster</label>
-                <input type="file" name="img" value="img" id="img" class="form-control">
-              </div>
-            </div>
+
         		<input type="hidden" name="add_product" value="1">
         		<div class="col-12">
         		
@@ -340,7 +509,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-<?php include_once("./templates/footer.php"); ?>
+
 <script>  
 function validateform(){  
 var name=document.myform.movie_name.value;  
