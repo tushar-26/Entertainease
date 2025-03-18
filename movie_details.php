@@ -75,6 +75,7 @@ include("header.php");
           </tr>
           <tr>
             <td>Language</td><td><?php echo $row['language'];?></td>
+            
           </tr>
          
           <tr>
@@ -122,16 +123,28 @@ include("header.php");
       </div>
       
     </div>
-    <div class="description">
-      <h4>Description</h4>
-      <p>
-        Jeff Lang (Tobey Maguire), an OBGYN, and his wife Nealy (Elizabeth Banks), who owns a small shop, live in Seattle with their two-year-old son named Miles. Considering a second child, they decide to enlarge their small home and lay expensive new grass in their backyard. Worms in the grass attract raccoons, who destroy the grass, and Jeff goes to great lengths to get rid of the raccoons, mixing poison with a can of tuna. Their neighbor Lila (Laura Linney) tells Jeff that her cat Matthew is missing, and Jeff does not yet realize he may be responsible.
-      </p>
-    </div>
     <?php
         }
       }
          ?>
+    <div class="description">
+      <h4>Description</h4>
+      <p>
+
+      <?php
+        $result = mysqli_query($conn,"SELECT * FROM add_movie WHERE id = '".$id."'");
+        
+        
+        if (mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_array($result)) {
+            $id = $row['id'];
+      
+      echo $row['decription'];
+          }
+        }?>
+      
+      </p>
+    </div>
     </div>
   
 </section>
