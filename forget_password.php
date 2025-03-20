@@ -1,270 +1,154 @@
-<!--<html>
-<head>
-<link rel="icon" type="image/jpg" href="img/logo.jpg">
-<title> Login Page</title>
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="site.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-</head>
-<body>
-<div>
-	<div class="parent-container">
-
-		<table width="100%" height="100%">
-		<tr>
-			<td align="center" valign="middle">
-				<div class="loginholder">
-        
-					<table style="background-color:white;" class="table-condensed">
-					<tr>
-
-  						<a href="./index.html"><img src="img/logo.png" alt="" width="250px"></a>
-					</tr>
-					<tr>
-						<td><b>Email Id:</b></td>
-					</tr>
-					<tr>
-						<td><input type="text" class="inputbox" id="email"/>
-              <br><p id="emailerror"></p></td>
-					</tr>
-					<tr>
-						<td><b>Old Password Id:</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="oldpassword"/>
-              <br><p id="oldpassworderror"></p></td>
-					</tr>
-					<tr>
-						<td><b>New Password:</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="newpassword" />
-              <br><p id="newpassworderror"></p> </td>
-            
-					</tr>
-					<tr>
-						<td><b>Conform Password</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="cpassword"/>
-              <br><p id="cpassworderror"></p><div id="msg"></div></td>
-					</tr>
-					<tr>
-						<td align="center"><br />
-
-						 <button class="btn-normal" id="login">Submit</button>
-						</td>
-					</tr>
-				
-
-					</table>
-        
-				</div>
-			</td>
-		</tr>
-		</table>
-	</div>
-</div>
-<script type="text/javascript">
-
-	$(document).ready(function(){
-  $("#login").click(function(){
-    var email = $("#email").val().trim();
-    var oldpassword = $("#oldpassword").val().trim();
-    var newpassword = $("#newpassword").val().trim();
-    var cpassword = $("#cpassword").val().trim();
-
-   
-     if( email == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "emailerror" ).innerHTML = error;
-  return false;
- }
-
-  if( oldpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "oldpassworderror" ).innerHTML = error;
-  return false;
- }
-
-  if( newpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "newpassworderror" ).innerHTML = error;
-  return false;
- }
-
-  if( cpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-  if( cpassword != newpassword)
- {
-  error = " <font color='red'>!Password is not Match.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-    $.ajax({
-      url:'forget.php',
-      type:'post',
-      data:{email:email,oldpassword:oldpassword,newpassword:newpassword},
-      success:function(response){
-          if(response == 1){
-                                    window.location = "login.php";
-                                }else{
-                                     error = " <font color='red'>!Invalid UserId.</font> ";
-                                     document.getElementById( "msg" ).innerHTML = error;
-                                      return false;
-                                }
-        $("#message").html(response);
-      }
-    });
-  });
-});
-</script>
-</body>
-</html> -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title> Login Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forget Password</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="site.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 100px;
+    }
+
+    .loginholder {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: black;
+    }
+
+    .inputbox {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-normal {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-normal:hover {
+      background-color: darkred;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
 </head>
 
-<body style="background-color: black;">
-  <div>
-    <div class="parent-container" style="background-color: black;">
-
-      <table width=" 100%" height="100%" style="background-color: black;">
-        <tr>
-          <td align="center" valign="middle">
-            <div class="loginholder">
-
-              <table style="background-color:white;" class="table-condensed">
-                <tr>
-
-                  <a href="./index.html" style="text-decoration: none;">
-                    <h1 style="color: white; background-color:red">Entertainease</h1>
-                  </a>
-                </tr>
-                <tr>
-                  <td><b>Email Id:</b></td>
-                </tr>
-                <tr>
-                  <td><input type="text" class="inputbox" id="email" />
-                    <br>
-                    <p id="emailerror"></p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Old Password Id:</b></td>
-                </tr>
-                <tr>
-                  <td><input type="password" class="inputbox" id="oldpassword" />
-                    <br>
-                    <p id="oldpassworderror"></p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>New Password:</b></td>
-                </tr>
-                <tr>
-                  <td><input type="password" class="inputbox" id="newpassword" />
-                    <br>
-                    <p id="newpassworderror"></p>
-                  </td>
-
-                </tr>
-                <tr>
-                  <td><b>Conform Password</b></td>
-                </tr>
-                <tr>
-                  <td><input type="password" class="inputbox" id="cpassword" />
-                    <br>
-                    <p id="cpassworderror"></p>
-                    <div id="msg"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center"><br />
-
-                    <button class="btn-normal" id="login">Submit</button>
-                  </td>
-                </tr>
-
-
-              </table>
-
+<body>
+  <h2 style="margin-top: 0; text-align:center">Reset Password</h2>
+  <div class="container" style="margin-top: 20px;">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="loginholder">
+          <a href="./index.html" style="text-decoration: none;">
+            <h1 style="color: white; background-color:red; text-align: center;">Entertainease</h1>
+          </a>
+          <form id="forgetPasswordForm">
+            <div class="form-group">
+              <label for="email" style="font-size: 17px;">Email Id:</label>
+              <input type="text" class="inputbox" id="email" style="font-size: 14px;" />
+              <p id="emailerror" class="error"></p>
             </div>
-          </td>
-        </tr>
-      </table>
+            <div class="form-group">
+              <label for="newpassword" style="font-size: 17px;">New Password:</label>
+              <input type="password" class="inputbox" id="newpassword" style="font-size: 14px;" />
+              <p id="newpassworderror" class="error"></p>
+            </div>
+            <div class="form-group">
+              <label for="cpassword" style="font-size: 17px;">Confirm Password:</label>
+              <input type="password" class="inputbox" id="cpassword" style="font-size: 14px;" />
+              <p id="cpassworderror" class="error"></p>
+            </div>
+            <div id="msg" class="error"></div>
+            <div id="successmsg" class="success" style="font-size: 17px;"></div>
+            <div class="form-group text-center">
+              <button type="button" class="btn-normal" id="login" style="font-size: 17px;">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $("#login").click(function() {
+    $(document).ready(function () {
+      $("#login").click(function () {
         var email = $("#email").val().trim();
-        var oldpassword = $("#oldpassword").val().trim();
         var newpassword = $("#newpassword").val().trim();
         var cpassword = $("#cpassword").val().trim();
-
+        var error = "";
 
         if (email == "") {
-          error = " <font color='red'>!Requrie Name.</font> ";
-          document.getElementById("emailerror").innerHTML = error;
+          error = "Email is required.";
+          $("#emailerror").html(error);
           return false;
-        }
-
-        if (oldpassword == "") {
-          error = " <font color='red'>!Requrie Email.</font> ";
-          document.getElementById("oldpassworderror").innerHTML = error;
-          return false;
+        } else {
+          $("#emailerror").html("");
         }
 
         if (newpassword == "") {
-          error = " <font color='red'>!Requrie Email.</font> ";
-          document.getElementById("newpassworderror").innerHTML = error;
+          error = "New password is required.";
+          $("#newpassworderror").html(error);
           return false;
+        } else {
+          $("#newpassworderror").html("");
         }
 
         if (cpassword == "") {
-          error = " <font color='red'>!Requrie Email.</font> ";
-          document.getElementById("cpassworderror").innerHTML = error;
+          error = "Confirm password is required.";
+          $("#cpassworderror").html(error);
           return false;
+        } else {
+          $("#cpassworderror").html("");
         }
+
         if (cpassword != newpassword) {
-          error = " <font color='red'>!Password is not Match.</font> ";
-          document.getElementById("cpassworderror").innerHTML = error;
+          error = "Passwords do not match.";
+          $("#cpassworderror").html(error);
           return false;
+        } else {
+          $("#cpassworderror").html("");
         }
+
         $.ajax({
           url: 'forget.php',
           type: 'post',
           data: {
             email: email,
-            oldpassword: oldpassword,
             newpassword: newpassword
           },
-          success: function(response) {
+          success: function (response) {
             if (response == 1) {
-              window.location = "login.php";
+              $("#successmsg").html("Password changed successfully. Redirecting to login_form page...");
+              setTimeout(function () {
+                window.location = "login_form.php";
+              }, 5000);
             } else {
-              error = " <font color='red'>!Invalid UserId.</font> ";
-              document.getElementById("msg").innerHTML = error;
+              error = "Invalid UserId.";
+              $("#msg").html(error);
               return false;
             }
-            $("#message").html(response);
           }
         });
       });

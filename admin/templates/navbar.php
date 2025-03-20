@@ -13,6 +13,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+   
 }
 .navbar {
     background-color:rgb(0, 128, 255); 
@@ -66,7 +67,8 @@ body {
     	<?php
     		if (isset($_SESSION['admin'])) {
     			?>
-    				<a class="nav-link" href="../admin/admin-logout.php">Sign out</a>
+                   <h4 style="display: inline-block; margin-right: 1000px; color:orangered; font-family: arial; font-style:italic; box-shadow: red 0 0 20px; padding: 3px;">Admin Panel</h3>
+    				<a class="nav-link" href="../admin/admin-logout.php" style="display: inline-block;">Sign out</a>
     			<?php
     		}
     	?>
