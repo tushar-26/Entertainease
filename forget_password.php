@@ -11,7 +11,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <style>
     body {
-      background-color: black;
+      background-image: url(img/pngtree-movie-night-necessities-3d-renderings-of-a-blank-cinema-ticket-popcorn-image_3623914.jpg);
+    background-size: cover;
+      background-repeat: no-repeat;
       color: white;
       font-family: 'Montserrat', sans-serif;
       margin-top: 100px;
@@ -57,7 +59,7 @@
 </head>
 
 <body>
-  <h2 style="margin-top: 0; text-align:center">Reset Password</h2>
+  <h2 style="margin-top: 0; box-shadow: inset red 0 0 20px; padding: 10px 15px; display:inline-block;  text-align:center; margin-left: 680px; background-color:black">Reset Password</h2>
   <div class="container" style="margin-top: 20px;">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -145,7 +147,7 @@
                 window.location = "login_form.php";
               }, 5000);
             } else {
-              error = "Invalid UserId.";
+              error = "Invalid User Email Id.";
               $("#msg").html(error);
               return false;
             }

@@ -144,12 +144,36 @@
                                                                            value="<?= htmlspecialchars($row['movie_name']) ?>" 
                                                                            class="form-control" required>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Director</label>
                                                                     <input type="text" name="edit_directer_name" 
                                                                            value="<?= htmlspecialchars($row['directer']) ?>" 
+                                                                           class="form-control" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Release Date</label>
+                                                                    <input type="date" name="edit_release_date" 
+                                                                           value="<?= htmlspecialchars($row['release_date']) ?>" 
+                                                                           class="form-control" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Category</label>
+                                                                    <input type="text" name="edit_category" 
+                                                                           value="<?= htmlspecialchars($row['categroy']) ?>" 
+                                                                           class="form-control" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Language</label>
+                                                                    <input type="text" name="edit_language" 
+                                                                           value="<?= htmlspecialchars($row['language']) ?>" 
+                                                                           class="form-control" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>YouTube Trailer Link</label>
+                                                                    <input type="url" name="edit_youtube_link" 
+                                                                           value="<?= htmlspecialchars($row['you_tube_link']) ?>" 
                                                                            class="form-control" required>
                                                                 </div>
                                                             </div>
@@ -158,18 +182,11 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label>Category</label>
-                                                                    <input type="text" name="edit_category" 
-                                                                           value="<?= htmlspecialchars($row['categroy']) ?>" 
-                                                                           class="form-control" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Language</label>
-                                                                    <input type="text" name="edit_language" 
-                                                                           value="<?= htmlspecialchars($row['language']) ?>" 
-                                                                           class="form-control" required>
+                                                                    <label>Movie Status</label>
+                                                                    <select name="edit_action" class="form-control" required>
+                                                                        <option value="running" <?= $row['action'] === 'running' ? 'selected' : '' ?>>Running</option>
+                                                                        <option value="upcoming" <?= $row['action'] === 'upcoming' ? 'selected' : '' ?>>Upcoming</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -212,6 +229,13 @@
                                                                 </div>
                                                                 <?php } ?>
                                                             </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-section">
+                                                        <div class="form-group">
+                                                            <label>Description</label>
+                                                            <textarea name="edit_description" class="form-control" rows="4" required><?= htmlspecialchars($row['decription']) ?></textarea>
                                                         </div>
                                                     </div>
 
@@ -280,6 +304,10 @@
                                         <label>Director</label>
                                         <input type="text" name="directer_name" class="form-control" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Release Date</label>
+                                        <input type="date" name="release_date" class="form-control" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -289,6 +317,22 @@
                                     <div class="form-group">
                                         <label>Language</label>
                                         <input type="text" name="language" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>YouTube Trailer Link</label>
+                                        <input type="url" name="youtube_link" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Movie Status</label>
+                                        <select name="action" class="form-control" required>
+                                            <option value="running">Running</option>
+                                            <option value="upcoming">Upcoming</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -322,6 +366,13 @@
                                     </div>
                                     <?php } ?>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" class="form-control" rows="4" required></textarea>
                             </div>
                         </div>
 

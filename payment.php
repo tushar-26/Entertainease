@@ -170,7 +170,7 @@ if (!isset($_SESSION['uname'])) {
 <body>
     <div class="payment-container">
         <div class="text-center mb-4">
-            <h2 class="font-weight-bold" style="color: var(--primary-red);">Complete Payment</h2>
+            <h2 class="font-weight-bold" style="color: var(--primary-red);">Complete your Payment</h2>
             <p class="text-muted">Secure payment processing</p>
         </div>
 

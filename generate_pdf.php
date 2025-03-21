@@ -73,7 +73,7 @@ $html = '
                 <div class="card">
                     <div class="card-header text-center">
                         <h3>Entertainease</h3>
-                        <h6>Devi cinema, Naroda, Ahmedabad</h6>
+                        <h4>Devi cinema, Naroda, Ahmedabad</h4>
                     </div>
                     <div class="card-body">
                         <table>

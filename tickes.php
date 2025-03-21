@@ -26,13 +26,23 @@
     .center {
       text-align: center;
     }
+
+    /* Styling for the success animation */
+    .success-animation {
+      width: 350px;
+      
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
-  <center><h1 style="color:red;">Congratulations! You have successfully booked your tickets for the show.</h1></center>
+  <div class="center">
+    <img src="https://i.pinimg.com/originals/0d/e4/1a/0de41a3c5953fba1755ebd416ec109dd.gif" alt="Payment Successful" class="success-animation">
+    <h1 style="color:red;">Congratulations! You have successfully booked your tickets for the show.</h1>
+  </div>
   <!-- Log Out Button -->
   <div class="center">
-    <a href="logout.php" class="button">Log Out</a><br>
+    <a href="logout.php" class="button" style="display: none;">Log Out</a><br>
     <!-- Back To Home Button -->
     <a href="index.php" class="button">Back To Home</a><br>
     <!-- Collect Your Ticket Button -->
@@ -40,4 +50,3 @@
   </div>
 </body>
 </html>
-    
