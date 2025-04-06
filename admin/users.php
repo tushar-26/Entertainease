@@ -7,6 +7,7 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
   <title>Manage Users</title>
+  <link href="../img/logo.jpg" rel="icon">
   
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -76,7 +77,7 @@
       <!-- Main Content -->
       <div class="main-content" style=" margin-left:0">
         <h2>User Management</h2>
-
+        
         <div class="table-responsive">
           <table class="table table-hover">
             <thead class="thead-light">
@@ -121,11 +122,7 @@
                            onerror="this.src='<?= $fallback_avatar ?>'">
                     </td>
                     <td>
-                      <button class="btn btn-primary btn-sm" 
-                              data-toggle="modal" 
-                              data-target="#edit_users_modal<?= $id ?>">
-                        Edit
-                      </button>
+                     
                       <button class="btn btn-danger btn-sm" 
                               data-toggle="modal" 
                               data-target="#delete_users_modal<?= $id ?>">
@@ -133,6 +130,7 @@
                       </button>
                     </td>
                   </tr>
+                  
 
                   <!-- Delete Modal -->
                   <div class="modal fade" id="delete_users_modal<?= $id ?>" tabindex="-1">
@@ -151,6 +149,7 @@
                             <button type="submit" name="deleteuser" 
                                     class="btn btn-danger">Confirm Delete</button>
                           </form>
+                          
                         </div>
                       </div>
                     </div>
@@ -217,7 +216,9 @@
                             <button type="submit" name="updateusers" 
                                     class="btn btn-primary btn-block">Update User</button>
                           </form>
+                          
                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -226,7 +227,11 @@
               }
               ?>
             </tbody>
+            
           </table>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+          <a href="generate_user_report.php" class="btn btn-success" style="background-color: crimson;">Download detailed user report</a>
+        </div>
         </div>
       </div>
     </div>

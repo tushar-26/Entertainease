@@ -39,6 +39,7 @@
   <div class="center">
     <img src="https://i.pinimg.com/originals/0d/e4/1a/0de41a3c5953fba1755ebd416ec109dd.gif" alt="Payment Successful" class="success-animation">
     <h1 style="color:red;">Congratulations! You have successfully booked your tickets for the show.</h1>
+    <h1 style="color:indianred">Check your email for confirmation ! ❤️</h1>
   </div>
   <!-- Log Out Button -->
   <div class="center">

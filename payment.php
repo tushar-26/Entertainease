@@ -207,6 +207,7 @@ if (!isset($_SESSION['uname'])) {
 
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)) {
+                                    $_SESSION['theater'] = $row['theater'];
                                     echo '<div class="col-md-6">';
                                     echo '<div><strong>Name:</strong> '.$row['username'].'</div>';
                                     echo '<div><strong>Phone:</strong> '.$row['mobile'].'</div>';

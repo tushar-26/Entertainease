@@ -101,6 +101,7 @@ session_start();
                 </div>
                 <div class="col-lg-6 col-md-6 contact__image">
                     <img src="img/Contact.jpg" alt="Contact Image">
+                  
                 </div>
             </div>
         </div>

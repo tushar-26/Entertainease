@@ -13,6 +13,7 @@ include_once 'Database.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Customer Management</title>
+    <link href="../img/logo.jpg" rel="icon">
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -88,6 +89,7 @@ include_once 'Database.php';
                         <div class="search-container">
                             <input type="text" class="form-control" id="searchInput" placeholder="Search bookings...">
                         </div>
+                        
                     </div>
 
                     <div class="table-responsive">
@@ -138,11 +140,17 @@ include_once 'Database.php';
                                 ?>
                             </tbody>
                         </table>
+                        
                     </div>
+                    
                 </div>
             </div>
+            <h4 style="margin-left: 50px;">for more detailed Analysis :</h4>
+            <a href="generate_report.php" class="btn btn-success" style="margin-left: 100px; background-color:crimson">Download Excel Report</a>
         </div>
+        
     </div>
+    
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
